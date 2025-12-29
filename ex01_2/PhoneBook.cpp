@@ -19,15 +19,6 @@ void	PhoneBook::addContactPhoneBook(Contact const &contact)
 		m_nbContact++;
 }
 
-size_t PhoneBook::getRealIndex(size_t logicalIndex) const
-{
-    if (m_nbContact < 8)
-        return logicalIndex;
-
-    size_t start = m_i % 8;
-    return (start + logicalIndex) % 8;
-}
-
 void	PhoneBook::afficheContact(size_t indexContact) const
 {
 	if (m_nbContact == 0)
@@ -40,9 +31,7 @@ void	PhoneBook::afficheContact(size_t indexContact) const
 		std::cout << "invalide index, entrer un nombre entre 0 et " << (m_nbContact - 1) << "\n"; 
 		return;
 	}
-
-	size_t realIdx = getRealIndex(indexContact);
-	std::cout << m_contact[realIdx] << std::endl;
+	std::cout << m_contact[indexContact] << std::endl;
 }
 void	PhoneBook::afficheliste() const
 {
@@ -54,9 +43,6 @@ void	PhoneBook::afficheliste() const
 	}
 	for (size_t i = 0; i < m_nbContact; i++)
 	{
-	
-		size_t idx = getRealIndex(i);
-
 		std::stringstream ss;
 		ss << i;
 		std::string indexStr = ss.str();
@@ -64,30 +50,30 @@ void	PhoneBook::afficheliste() const
 			std::cout << " ";
 		std::cout << indexStr << " | ";
 
-		if (m_contact[idx].getNom().size() >= 10)
-			std::cout << m_contact[idx].getNom().substr(0, 9) << "." << " | ";
+		if (m_contact[i].getNom().size() >= 10)
+			std::cout << m_contact[i].getNom().substr(0, 9) << "." << " | ";
 		else
 		{
-			std::cout << m_contact[idx].getNom();
-			for (size_t  e = m_contact[idx].getNom().size(); e < 10; e++)
+			std::cout << m_contact[i].getNom();
+			for (size_t  e = m_contact[i].getNom().size(); e < 10; e++)
 				std::cout << " ";
 			std::cout << " | ";
 		}
-		if (m_contact[idx].getPrenom().size() >= 10)
-			std::cout << m_contact[idx].getPrenom().substr(0, 9) << "." << " | ";
+		if (m_contact[i].getPrenom().size() >= 10)
+			std::cout << m_contact[i].getPrenom().substr(0, 9) << "." << " | ";
 		else
 		{
-			std::cout << m_contact[idx].getPrenom();
-			for (size_t e = m_contact[idx].getPrenom().size(); e < 10; e++)
+			std::cout << m_contact[i].getPrenom();
+			for (size_t e = m_contact[i].getPrenom().size(); e < 10; e++)
 				std::cout << " ";
 			std::cout << " | ";
 		}
-		if (m_contact[idx].getPseudo().size() >= 10)
-			std::cout << m_contact[idx].getPseudo().substr(0, 9) << "." << " | " << std::endl;
+		if (m_contact[i].getPseudo().size() >= 10)
+			std::cout << m_contact[i].getPseudo().substr(0, 9) << "." << " | " << std::endl;
 		else
 		{
-			std::cout << m_contact[idx].getPseudo();
-			for (size_t e = m_contact[idx].getPseudo().size(); e < 10; e++)
+			std::cout << m_contact[i].getPseudo();
+			for (size_t e = m_contact[i].getPseudo().size(); e < 10; e++)
 				std::cout << " ";
 			std::cout << " | " << std::endl;
 		}
