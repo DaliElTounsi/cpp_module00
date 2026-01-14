@@ -1,9 +1,0 @@
-[20260113_171007] index:0;amount:100;created
-[20260113_171007] index:0;amount:100;deposits:0;withdrawals:0
-[20260113_171007] index:0;p_amount:100;deposit:50;amount:150;nb_deposits:1
-[20260113_171007] index:0;amount:150;deposits:1;withdrawals:0
-[20260113_171007] index:0;p_amount:150;withdrawal:refused
-[20260113_171007] index:0;p_amount:150;withdrawal:30;amount:120;nb_withdrawals:1
-[20260113_171007] index:0;amount:120;deposits:1;withdrawals:1
-[20260113_171007] accounts:1;total:120;deposits:1;withdrawals:1
-[20260113_171007] index:0;amount:120;closed
